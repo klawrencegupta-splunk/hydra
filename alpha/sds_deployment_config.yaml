@@ -1,0 +1,61 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: splunksds
+  labels:
+    app: splunk
+    role: splunksds
+    tier: sds
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: splunk
+      role: splunksds
+      tier: sds
+  template:
+    metadata:
+      labels:
+        app: splunk
+        role: splunksds
+        tier: sds 
+    spec:
+      hostname: sds
+      dnsPolicy: ClusterFirst
+      dnsConfig:
+        searches:
+          - indexer.splunk.svc.cluster.local
+      containers:
+        - name: master
+          image: splunk/splunk:latest
+          env:
+            - name: SPLUNK_HOME
+              value: /opt/splunk
+            - name: SPLUNK_DEFAULTS_URL
+              value: http://splunk-defaults/default.yml
+            - name: SPLUNK_ROLE
+              value: splunk_deploy_server
+            - name: SPLUNK_PASSWORD
+              value: changeme123
+            - name: SPLUNK_START_ARGS
+              value: "--accept-license"
+          ports:
+            - name: web
+              containerPort: 8000
+            - name: mgmt
+              containerPort: 8089
+            - name: kv
+              containerPort: 8191
+          volumeMounts:
+            - name: splunk-deploy-server-data
+              mountPath: /opt/splunk/var
+            - name: splunk-deploy-config
+              mountPath: /opt/splunk/etc
+      volumes:
+        - name: splunk-deploy-config
+          persistentVolumeClaim:
+            claimName: splunk-deploy-config
+        - name: splunk-deploy-server-data
+          persistentVolumeClaim:
+            claimName: ssplunk-deploy-server-data
