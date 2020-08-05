@@ -2,6 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: splunk
   name: splunksds
   labels:
     app: splunk
@@ -27,7 +28,7 @@ spec:
         searches:
           - indexer.splunk.svc.cluster.local
       containers:
-        - name: master
+        - name: splunksds
           image: splunk/splunk:latest
           env:
             - name: SPLUNK_HOME
@@ -58,4 +59,4 @@ spec:
             claimName: splunk-deploy-config
         - name: splunk-deploy-server-data
           persistentVolumeClaim:
-            claimName: ssplunk-deploy-server-data
+            claimName: splunk-deploy-server-data
