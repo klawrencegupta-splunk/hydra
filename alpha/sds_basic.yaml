@@ -48,10 +48,3 @@ spec:
               containerPort: 8089
             - name: kv
               containerPort: 8191
-          volumeMounts:
-            - name: sds-data
-              mountPath: /opt/splunk/var
-      volumes:
-        - name: sds-data
-          persistentVolumeClaim:
-            claimName: sds-data
