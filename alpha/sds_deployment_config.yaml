@@ -29,7 +29,7 @@ spec:
           - sds.splunk.svc.cluster.local
       containers:
         - name: splunksds
-          image: splunk/splunk:latest
+          image: splunk/splunk:redhat
           env:
             - name: SPLUNK_HOME
               value: /opt/splunk
@@ -50,7 +50,7 @@ spec:
               containerPort: 8191
           volumeMounts:
             - name: sds-data
-              mountPath: /opt/splunk/var
+              mountPath: /opt/splunk/etc/deploy-apps
       volumes:
         - name: sds-data
           persistentVolumeClaim:
