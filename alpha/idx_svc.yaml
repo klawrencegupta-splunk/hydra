@@ -1,0 +1,22 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: splunk_deployserver 
+  labels:
+    app: splunk
+    role: splunk_deployserver
+    tier: sds 
+spec:
+  selector:
+    app: splunk
+    role: splunk_deployserver
+    tier: sds
+  ports:
+    - name: splunkweb
+      port: 8000
+      targetPort: 8000
+    - name: splunkd
+      port: 8089
+      targetPort: 8089
+  clusterIP: 10.1.3.16
