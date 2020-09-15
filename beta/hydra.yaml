@@ -9,7 +9,7 @@ metadata:
     role: splunksds
     tier: sds
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: splunk
@@ -26,6 +26,9 @@ spec:
         - name: splunk-mds
           persistentVolumeClaim:
              claimName: splunk-mds
+        - name: splunk-local
+          persistentVolumeClaim:
+             claimName: splunk-local
       hostname: sds
       dnsPolicy: ClusterFirst
       dnsConfig:
@@ -36,10 +39,12 @@ spec:
           image: splunk/splunk:latest
           ports:
            - containerPort: 8089
-             name: "splunk-mds"
+             name: splunk
           volumeMounts:
-           - mountPath: /opt/splunk/etc/system/local
-             name: /splunk-mds
+           - mountPath: /opt/splunk/etc/deployment-apps
+             name: splunk-mds
+           - mountPath: /opt/splunk/etc/apps/
+             name: splunk-local
           env:
             - name: SPLUNK_HOME
               value: /opt/splunk
