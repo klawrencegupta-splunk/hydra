@@ -1,0 +1,16 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: splunkd-mds
+  namespace: splunk
+  annotations:
+    service.beta.kubernetes.io/brightbox-load-balancer-healthcheck-request: /
+spec:
+  type: LoadBalancer
+  selector:
+    app: splunk
+  ports:
+    - name: sds
+      protocol: TCP
+      port: 8089
+      targetPort: 8089

@@ -1,0 +1,51 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: splunk
+  name: splunksds
+  labels:
+    app: splunk
+    role: splunksds
+    tier: sds
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: splunk
+      role: splunksds
+      tier: sds
+  template:
+    metadata:
+      labels:
+        app: splunk
+        role: splunksds
+        tier: sds 
+    spec:
+      volumes:
+        - name: splunk-mds
+          persistentVolumeClaim:
+             claimName: splunk-mds
+      hostname: sds
+      dnsPolicy: ClusterFirst
+      dnsConfig:
+        searches:
+          - sds.splunk.svc.cluster.local
+      containers:
+        - name: splunksds
+          image: splunk/splunk:latest
+          ports:
+           - containerPort: 8089
+             name: "splunk-mds"
+          volumeMounts:
+           - mountPath: /opt/splunk/etc/deployment-apps/
+             name: splunk-mds
+          env:
+            - name: SPLUNK_HOME
+              value: /opt/splunk
+            - name: SPLUNK_ETC
+              value: /opt/splunk/etc
+            - name: SPLUNK_PASSWORD
+              value: changeme123
+            - name: SPLUNK_START_ARGS
+              value: "--accept-license"
