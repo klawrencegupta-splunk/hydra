@@ -39,8 +39,7 @@ spec:
           image: splunk/splunk:latest
           ports:
            - containerPort: 8089
-	     hostPort: 32428
-	     protocol: TCP
+             name: splunk
           volumeMounts:
            - mountPath: /opt/splunk/etc/deployment-apps
              name: splunk-mds

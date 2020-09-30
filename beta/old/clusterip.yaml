@@ -2,12 +2,13 @@ apiVersion: v1
 kind: Service
 metadata:
   name: splunk-mds-lb
-  namespace: splunk
 spec:
   selector:
     app: splunk
   ports:
-    - port: 8089
+    - name: splunk
+      protocol: TCP
+      port: 8089
       targetPort: 8089
   externalTrafficPolicy: Local
-  type: LoadBalancer
+  type: NodePort
