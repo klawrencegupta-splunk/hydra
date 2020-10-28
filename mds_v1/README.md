@@ -26,7 +26,7 @@ The scripted install will deploy the following:
 * **/etc/deployment-apps** on each POD mapped to **/splunk-mds** on Hostpath - repository of deployment apps to be distributed by the DS POD
 
 **Operations -- Replicas can be scaled up/down as needed** 
-kubectl scale --replicas=0 -f mds.yaml //down
-kubectl scale --replicas=2 -f mds.yaml //up
-**sh enable_ds.sh should be run after any scaling action to enable the DS per POD**
-**sh reload.sh can be run if there was no change to the scaling but a reload needs to be issued**
+* kubectl scale --replicas=0 -f mds.yaml //down
+* kubectl scale --replicas=2 -f mds.yaml //up
+* **sh enable_ds.sh should be run after any scaling action to enable the DS per POD**
+* **sh reload.sh can be run if there was no change to the scaling but a reload needs to be issued**
