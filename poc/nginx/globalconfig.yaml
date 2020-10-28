@@ -1,0 +1,10 @@
+apiVersion: k8s.nginx.org/v1alpha1
+kind: GlobalConfiguration 
+metadata:
+  name: nginx-configuration
+  namespace: splunk
+spec:
+  listeners:
+  - name: splunk-tcp
+    port: 8089
+    protocol: TCP

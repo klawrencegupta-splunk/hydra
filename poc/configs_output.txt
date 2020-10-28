@@ -1,0 +1,149 @@
+Name:         tcp-services
+Namespace:    splunk
+Labels:       <none>
+Annotations:  
+Data
+====
+8089:
+----
+splunk/splunksds:8089
+Events:  <none>
+Name:                     splunk-mds-lb
+Namespace:                splunk
+Labels:                   <none>
+Annotations:              Selector:  app=splunk
+Type:                     LoadBalancer
+IP:                       10.152.183.123
+LoadBalancer Ingress:     10.64.140.43
+Port:                     <unset>  32740/TCP
+TargetPort:               8089/TCP
+NodePort:                 <unset>  32740/TCP
+Endpoints:                10.1.76.36:8089,10.1.76.38:8089
+Session Affinity:         ClientIP
+External Traffic Policy:  Local
+HealthCheck NodePort:     32142
+Events:
+  Type    Reason        Age                From                Message
+  ----    ------        ----               ----                -------
+  Normal  Type          50m                service-controller  NodePort -> LoadBalancer
+  Normal  IPAllocated   50m                metallb-controller  Assigned IP "10.64.140.43"
+  Normal  nodeAssigned  31m (x4 over 50m)  metallb-speaker     announcing from node "ip-10-202-39-202"
+Name:          splunk-local
+Namespace:     splunk
+StorageClass:  manual
+Status:        Bound
+Volume:        splunk-local
+Labels:        <none>
+Annotations:   pv.kubernetes.io/bind-completed: yes
+               pv.kubernetes.io/bound-by-controller: yes
+Finalizers:    [kubernetes.io/pvc-protection]
+Capacity:      5Gi
+Access Modes:  RWX
+VolumeMode:    Filesystem
+Mounted By:    splunksds-5bb64b8bd6-8c97c
+               splunksds-5bb64b8bd6-m5gq4
+Events:        <none>
+
+
+Name:          splunk-mds
+Namespace:     splunk
+StorageClass:  manual
+Status:        Bound
+Volume:        splunk-mds
+Labels:        <none>
+Annotations:   pv.kubernetes.io/bind-completed: yes
+               pv.kubernetes.io/bound-by-controller: yes
+Finalizers:    [kubernetes.io/pvc-protection]
+Capacity:      10Gi
+Access Modes:  RWO
+VolumeMode:    Filesystem
+Mounted By:    splunksds-5bb64b8bd6-8c97c
+               splunksds-5bb64b8bd6-m5gq4
+Events:        <none>
+Name:            splunk-local
+Labels:          type=local
+Annotations:     pv.kubernetes.io/bound-by-controller: yes
+Finalizers:      [kubernetes.io/pv-protection]
+StorageClass:    manual
+Status:          Bound
+Claim:           splunk/splunk-local
+Reclaim Policy:  Retain
+Access Modes:    RWX
+VolumeMode:      Filesystem
+Capacity:        5Gi
+Node Affinity:   <none>
+Message:         
+Source:
+    Type:          HostPath (bare host directory volume)
+    Path:          /splunk-local
+    HostPathType:  
+Events:            <none>
+
+
+Name:            splunk-mds
+Labels:          type=local
+Annotations:     pv.kubernetes.io/bound-by-controller: yes
+Finalizers:      [kubernetes.io/pv-protection]
+StorageClass:    manual
+Status:          Bound
+Claim:           splunk/splunk-mds
+Reclaim Policy:  Retain
+Access Modes:    RWO
+VolumeMode:      Filesystem
+Capacity:        10Gi
+Node Affinity:   <none>
+Message:         
+Source:
+    Type:          HostPath (bare host directory volume)
+    Path:          /splunk-mds
+    HostPathType:  
+Events:            <none>
+Name:                   splunksds
+Namespace:              splunk
+CreationTimestamp:      Wed, 28 Oct 2020 14:43:47 +0000
+Labels:                 app=splunk
+                        role=splunksds
+                        tier=sds
+Annotations:            deployment.kubernetes.io/revision: 1
+Selector:               app=splunk,role=splunksds,tier=sds
+Replicas:               2 desired | 2 updated | 2 total | 2 available | 0 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  25% max unavailable, 25% max surge
+Pod Template:
+  Labels:  app=splunk
+           role=splunksds
+           tier=sds
+  Containers:
+   splunksds:
+    Image:      splunk/splunk:latest
+    Port:       8089/TCP
+    Host Port:  0/TCP
+    Environment:
+      SPLUNK_HOME:        /opt/splunk
+      SPLUNK_ETC:         /opt/splunk/etc
+      SPLUNK_PASSWORD:    changeme123
+      SPLUNK_START_ARGS:  --accept-license
+    Mounts:
+      /opt/splunk/etc/apps/ from splunk-local (rw)
+      /opt/splunk/etc/deployment-apps from splunk-mds (rw)
+  Volumes:
+   splunk-mds:
+    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+    ClaimName:  splunk-mds
+    ReadOnly:   false
+   splunk-local:
+    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+    ClaimName:  splunk-local
+    ReadOnly:   false
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Progressing    True    NewReplicaSetAvailable
+  Available      True    MinimumReplicasAvailable
+OldReplicaSets:  splunksds-5bb64b8bd6 (2/2 replicas created)
+NewReplicaSet:   <none>
+Events:
+  Type    Reason             Age                From                   Message
+  ----    ------             ----               ----                   -------
+  Normal  ScalingReplicaSet  31m (x2 over 81m)  deployment-controller  Scaled up replica set splunksds-5bb64b8bd6 to 2

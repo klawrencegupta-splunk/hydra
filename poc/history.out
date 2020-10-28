@@ -1,0 +1,500 @@
+   66  clear
+   67  kubectl get pods
+   68  kubectl get pods
+   69  kubectl describe pods
+   70  kubectl describe pods
+   71  kubectl get pods
+   72  kubectl describe pods
+   73  ls
+   74  sh enable_ds.sh 
+   75  sudo iptables -A INPUT -p tcp --dport 32740 -j ACCEPT
+   76  sudo iptables -A INPUT -p tcp --dport 32740 -j ACCEPT
+   77  kubectl describe pods
+   78  microk8s enable dns
+   79  microk8s enable storage
+   80  kubectl describe pods
+   81  kubectl get deployemnts
+   82  kubectl get deployments
+   83  kubectl delete deployment splunksds
+   84  clear
+   85  ls
+   86  kubectl apply -f hydra.yaml 
+   87  kubectl describe svc
+   88  nano lb3.yaml 
+   89  kubectl delete svc
+   90  kubectl delete svc -all
+   91  kubectl delete svc --all
+   92  clear
+   93  ls
+   94  kubectl apply -f lb3.yaml 
+   95  kubectl describe svc
+   96  kubectl get pods
+   97  ifconfig
+   98  clear
+   99  ls
+  100  kubectl describe pods
+  101  cp -R A-hydra-config/ /splunk-local/
+  102  sudo cp -R A-hydra-config/ /splunk-local/
+  103  sudo su
+  104  kubectl delete deployment splunksds
+  105  clear
+  106  ls
+  107  cd A-hydra-config/
+  108  ls
+  109  cd local/
+  110  ls
+  111  cat outputs.conf 
+  112  nano outputs.conf 
+  113  ls /splunk-local/
+  114  cd /home/splunker
+  115  ls
+  116  cd hydra/poc/
+  117  ls
+  118  kubectl apply -f hydra.yaml 
+  119  kubectl describe svc
+  120  kubectl describe pods
+  121  sh enable_ds.sh 
+  122  cd /splunk-local
+  123  ls
+  124  cd A-hydra-config/
+  125  ls
+  126  cd local/
+  127  ls
+  128  cat serverclass.conf 
+  129  ifconfig | grep '10.1.76.1.'
+  130  ifconfig | grep -A 3 -B 3 '10.1.76.1.'
+  131  kubectl describe svc
+  132  kubectl describe svc
+  133  ls
+  134  cd /home/splunker
+  135  ls
+  136  cd hydra/
+  137  ls
+  138  cd poc/
+  139  ls
+  140  cat lb3.yaml 
+  141  for x in $(kubectl get pods --all-namespaces | grep sds | awk '{print $2}'); do kubectl exec -it --namespace=splunk $x -- bash -c "sudo /opt/splunk/bin/./splunk search '|rest splunk_server=* /services/deployment/server/clients | stats count by splunk_server instanceName' -auth admin:changeme123"; done
+  142  kubectl describ pods
+  143  kubectl describe pods
+  144  ls /splunk-local/
+  145  cd A-hydra-config/
+  146  ls
+  147  cd local/
+  148  ls
+  149  cat serverclass.conf 
+  150  cd /splunk-local/
+  151  ls
+  152  cd A-hydra-config/
+  153  ls
+  154  cd local/
+  155  ls
+  156  cat serverclass.conf 
+  157  ls
+  158  kubectl describe svc
+  159  ls
+  160  cd /home/splunker
+  161  ls
+  162  cd hydra/
+  163  ls
+  164  cd poc/
+  165  ls
+  166  nano lb3.yaml 
+  167  kubectl apply -f lb3.yaml 
+  168  kubectl describe svc
+  169  kubectl delete deployment splunksds
+  170  ls
+  171  clear
+  172  ls
+  173  kubectl apply -f hydra.yaml 
+  174  kubectl get pods
+  175  kubectl get pods -all-namespaces
+  176  kubectl get pods --all-namespaces
+  177  ls
+  178  sh enable_ds.sh 
+  179  lskubectl scale --replicas=1 -f hydra.yaml
+  180  kubectl scale --replicas=1 -f hydra.yaml
+  181  kubectl get pods --all-namespaces
+  182  sh enable_ds.sh 
+  183  clear
+  184  kubectl get pods
+  185  kubectl delete deployment splunksds
+  186  clear
+  187  ls
+  188  nano hydra.yaml 
+  189  kubectl apply -f hydra.yaml 
+  190  clear
+  191  sh enable_ds.sh 
+  192  sh enable_ds.sh 
+  193  kubectl get pods
+  194  kubectl get pods
+  195  kubectl get configmap tcp-services -n splunk -o yaml
+  196  cat configmap.yaml 
+  197  ls
+  198  cat lb3.yaml 
+  199  nano patch.yaml
+  200  kubectl patch deployment splunksds --patch "$(cat patch.yaml)" -n splunk
+  201  kubectl port-forward splunk/splunksds 32740:8089
+  202  kubectl port-forward deployment splunk/splunksds 32740:8089
+  203  kubectl get svc
+  204  kubectl port-forward service/splunk-mds-lb-service 32740:8089
+  205  kubectl port-forward deployment/splunksds 32740:8089
+  206  history
+  207  kubectl scale --replicas=2 -f hydra.yaml
+  208  clear
+  209  kubectl get pods
+  210  sh enable_ds.sh 
+  211  kubectl get pods
+  212  cat configmap.yaml 
+  213  cat lb3.yaml 
+  214  kubectl scale --replicas=1 -f hydra.yaml
+  215  kubectl get pods
+  216  kubectl get pods
+  217  kubectl get pods
+  218  kubectl delete deployment splunksds
+  219  clear
+  220  ls
+  221  nano hydra.yaml 
+  222  kubectl apply -f hydra.yaml 
+  223  sh enable_ds.sh 
+  224  kubectl get svc
+  225  kubectl describe svc
+  226  kubectl get svcls
+  227  ls
+  228  nano lb3.yaml 
+  229  kubectl apply -f lb3.yaml 
+  230  kubectl describe svc
+  231  kubectl get pods
+  232  kubectl scale --replicas=2 -f hydra.yaml
+  233  kubectl describe svc
+  234  kubectl describe svc
+  235  sh enable_ds.sh 
+  236  kubectl describe svc
+  237  kubectl scale --replicas=1 -f hydra.yaml
+  238  kubectl describe svc
+  239  kubectl delete svc splunk-mds-lb-service
+  240  clear
+  241  ls
+  242  microk8s enable metallb
+  243  kubectl describe svc
+  244  kubectl describe deployment
+  245  kubectl describe deployment -all-namespaces
+  246  kubectl describe deployment --all-namespaces
+  247  kubectl get pods
+  248  kubectl get pods --all-namespaces
+  249  ls
+  250  kubectl get pods
+  251  clear
+  252  kubectl delete deployment splunksdsd
+  253  kubectl delete deployment splunksds
+  254  clear
+  255  kubectl get svc
+  256  kubectl get svc --all-namespaces
+  257  ls
+  258  cd hydra/
+  259  ls
+  260  kubectl get configmaps
+  261  kubectl describe configmaps
+  262  ls
+  263  cd poc/
+  264  ls
+  265  cat lb3.yaml 
+  266  kubectl apply -f lb3.yaml 
+  267  ls
+  268  nano hydra.yaml 
+  269  kubectl apply -f hydra.yaml 
+  270  clear
+  271  kubectl get svc
+  272  kubectl describe svc
+  273  kubectl get pods
+  274  kubectl describe svc
+  275  kubectl scale --replicas=2 -f hydra.yaml
+  276  kubectl describe svc
+  277  kubectl describe svc
+  278  kubectl describe svc
+  279  kubectl describe svc
+  280  sh enable_ds.sh 
+  281  echo 1 > /proc/sys/net/ipv4/netfilter/ip_conntrack_tcp_be_liberal
+  282  sudo echo 1 > /proc/sys/net/ipv4/netfilter/ip_conntrack_tcp_be_liberal
+  283  sudo su 
+  284  clear
+  285  ls
+  286  kubectl get svc
+  287  kubectl delete svc splunk-mds-lb-service
+  288  kubectl delete deployment splunksds
+  289  clear
+  290  ls
+  291  kubectl apply -f lb3.yaml 
+  292  kubectl apply -f hydra.yaml 
+  293  clear
+  294  kubectl get pods
+  295  nano hydra.yaml 
+  296  kubectl apply -f hydra.yaml 
+  297  kubectl get pods
+  298  kubectl describe svc
+  299  sh enable_ds.sh 
+  300  ls
+  301  cat lb3.yaml 
+  302  conntrack
+  303  sudo apt install conntrack
+  304  conntrack -S
+  305  sudo conntrack -S
+  306  conntrack --help
+  307  iptables -L
+  308  suod iptables -L
+  309  sudo iptables -L
+  310  conntrack -L -p tcp --dport 32740
+  311  sudo conntrack -L -p tcp --dport 32740
+  312  sudo conntrack -L -p tcp --dport 8089
+  313  sudo conntrack -L -p tcp --sport 8089
+  314  sudo conntrack -L -p tcp --sport 32740
+  315  sudo conntrack -L -p tcp --sdport 32740
+  316  sudo conntrack -L -p tcp --dport 32740
+  317  kubectl describe svc
+  318  conntrack -E
+  319  sudo conntrack -E
+  320  sudo conntrack -E -p tcp --dport 32740
+  321  clear
+  322  nano iptables.sh
+  323  sh iptables.sh 
+  324  sudo sh iptables.sh 
+  325  kubectl get pods
+  326  cd /home/splunker
+  327  ls
+  328  cd hydra/poc/
+  329  ls
+  330  cat lb3.yaml 
+  331  kubectl getp ods
+  332  kubectl get pods
+  333  clear
+  334  kubectl get svc
+  335  clear
+  336  kubectl describe svc
+  337  ls
+  338  cd hydra/
+  339  ls
+  340  cd poc/
+  341  ls
+  342  nano lb.yaml 
+  343  kubectl apply -f lb.yaml 
+  344  kubectl get svc
+  345  kubectl describe svc
+  346  ls
+  347  nano lb.yaml 
+  348  kubectl apply -f lb.yaml 
+  349  kubectl describe svc
+  350  kubectl get pods
+  351  kubectl get svc
+  352  kubectl delete svc splunk-mds-lb-service
+  353  kubectl delete deployment splunksds
+  354  clear
+  355  iptables -L
+  356  sudo iptables -L
+  357  tail /var/log/me
+  358  cd /varlog
+  359  cd /var
+  360  ls
+  361  cd log
+  362  ls
+  363  tail syslog 
+  364  sudo tail syslog
+  365  cat syslog 
+  366  sudo tail -n 100 syslog
+  367  clear
+  368  ls
+  369  cd /home/splunker
+  370  ls
+  371  cd hydra/poc/
+  372  ls
+  373  kubectl apply -f hydra.yaml 
+  374  cd old/
+  375  ls
+  376  cat lb.yaml 
+  377  cat lb2.yaml 
+  378  cat lvb.yaml 
+  379  cler
+  380  clear
+  381  ls
+  382  cat hydra.yaml 
+  383  clear
+  384  ls
+  385  cat lbc.yaml 
+  386  clear
+  387  ls
+  388  nano lb.yaml 
+  389  kubectl apply -f lb.yaml 
+  390  clear
+  391  ls
+  392  cd ..
+  393  ls
+  394  sh enable_ds.sh 
+  395  kubectl get pods
+  396  kubectl describe svc
+  397  netstat -an | more
+  398  netstat -an | grep 32740
+  399  ls
+  400  kubectl get svc
+  401  kubectl delete svc splunk-mds-lb
+  402  clear
+  403  ls
+  404  kubectl apply -f lb3.yaml 
+  405  kubectl describe svc
+  406  ls
+  407  cd old/
+  408  ls
+  409  mv lb.yaml ..
+  410  cd ..
+  411  ls
+  412  cat lb.yaml 
+  413  cat lb3.yaml 
+  414  kubectl get svc
+  415  kubectl delete svc splunk-mds-lb-service
+  416  ls
+  417  nano lb.yaml 
+  418  kubectl apply -f lb.yaml 
+  419  clear
+  420  kubectl describe svc
+  421  nano lb.yaml 
+  422  kubectl apply -f lb.yaml 
+  423  kubectl describe svc
+  424  netstat -an | grep 32740
+  425  kubectl describe svc
+  426  kubectl describe svc
+  427  clear
+  428  nano configmap2.yaml
+  429  kubectl get configmaps
+  430  kubectl delete configmaps tcp-services
+  431  kubectl apply -f configmap2.yaml 
+  432  kubectl describe configmaps
+  433  ls
+  434  nano lb.yaml
+  435  kubectl apply -f lb.yaml 
+  436  kubectl describe svc
+  437  clear
+  438  kubectl get pods
+  439  kubectl get svc
+  440  kubectl delete svc splunk-mds-lb
+  441  kubectl delete deployment splunksds
+  442  clear
+  443  ls
+  444  cat lb3.yaml 
+  445  cat lb.yaml 
+  446  nano lb.yaml
+  447  kubectl apply -f lb.yaml 
+  448  clear
+  449  kubectl apply -f hydra.yaml 
+  450  sh enable_ds.sh 
+  451  cd ..
+  452  ls
+  453  cd alpha/
+  454  ls
+  455  cat mk8.sh 
+  456  microk8s enable cillium
+  457  microk8s enable itsio
+  458  microk8s enable itsio
+  459  microk8s info
+  460  kubectl describe svc
+  461  tail -f /var/log/syslog 
+  462  sudo tail -f /var/log/syslog 
+  463  iptable -L
+  464  iptables -L
+  465  sudo iptables -L
+  466  iptables -A INPUT -j LOG
+  467  sudo iptables -A INPUT -j LOG
+  468  sudo tail -f /var/log/syslog 
+  469  iptables -A INPUT -p 32740 -j LOG
+  470  sudo tail -f /var/log/syslog | grep 32740
+  471  sudo tail -f /var/log/syslog | grep '32740\|8089'
+  472  sudo tail -f /var/log/syslog 
+  473  sudo tail -f /var/log/syslog | grep 'DROP'
+  474  sudo tail -f /var/log/syslog | grep 'DROP\|REJECT'
+  475  iptables -A INPUT -j LOGGING
+  476  iptables -A LOGGING -m limit --limit 2/min -j LOG --log-prefix "IPTables-Dropped: " --log-level 4
+  477  sudo iptables -A LOGGING -m limit --limit 2/min -j LOG --log-prefix "IPTables-Dropped: " --log-level 4
+  478  iptables -A LOGGING -m limit --limit 2/min -j LOG --log-prefix "IPTables-Dropped: " --log-level 4
+  479  sudo iptables -A LOGGING -m limit --limit 2/min -j LOG --log-prefix "IPTables-Dropped: " --log-level 4
+  480  sudo tail -f /var/log/syslog
+  481  iptables -A INPUT -j LOGGING
+  482  sudo su
+  483  history
+  484  history | grep sudo
+  485  sudo su
+  486  clear
+  487  kubectl get pods
+  488  clear
+  489  minikube addons enable ingress
+  490  clear
+  491  kubectl get svc pods
+  492  kubectl get svc
+  493  ls
+  494  cd hydra/poc/
+  495  ls
+  496  kubectl describe svc
+  497  kubectl get configmaps
+  498  kubectl delete svc splunk-mds-lb
+  499  kubectl delete configmap metallb-config
+  500  kubectl delete deployment splunksds
+  501  clear
+  502  ls
+  503  cat configmap.yaml 
+  504  kubectl get configmaps
+  505  kubectl get ns
+  506  kubectl config view --minify | grep namespace:
+  507  clear
+  508  cat configmap
+  509  cat configmap.yaml 
+  510  ls
+  511  cat lb.yaml 
+  512  clear
+  513  ls
+  514  mkdir nginx
+  515  cd nginx/
+  516  ls
+  517  nano globalconfig.yaml
+  518  nano transportserver.yaml
+  519  cd ..
+  520  ls
+  521  kubectl apply -f configmap.yaml 
+  522  cd nginx/
+  523  ls
+  524  kubectl apply -f globalconfig.yaml 
+  525  clear
+  526  ls
+  527  cd ..
+  528  ls
+  529  cat patch.yaml 
+  530  cat lb.yaml
+  531  kubectl apply -f lb.yaml 
+  532  kubectl apply -f hydra.yaml 
+  533  kubectl apply -f patch.yaml 
+  534  kubectl apply -f patch.yaml --validate=false
+  535  rm patch.yaml 
+  536  clear
+  537  ls
+  538  cat lb3.yaml 
+  539  rm lb3.yaml 
+  540  clear
+  541  ls
+  542  cat iptables.sh 
+  543  iptables -I INPUT -p tcp --dport 32740 -j ACCEPT
+  544  sudo iptables -I INPUT -p tcp --dport 32740 -j ACCEPT
+  545  sudo iptables -I OUTPUT -p tcp --dport 32740 -j ACCEPT
+  546  sh enable_ds.sh 
+  547  kubectl scale --replicas=1 -f hydra.yaml
+  548  ls
+  549  nano lb.yaml 
+  550  kubectl apply -f lb.yaml 
+  551  kubectl get configmaps
+  552  kubectl get svc
+  553  kubectl describe svc
+  554  netstat -an | more
+  555  kubectl get pods
+  556  kubectl scale --replicas=2 -f hydra.yaml
+  557  kubectl get pods
+  558  sh enable_ds.sh 
+  559  sh enable_ds.sh 
+  560  clear
+  561  ls
+  562  rm configmap2.yaml
+  563  ls
+  564  history 
+  565  history > history.out

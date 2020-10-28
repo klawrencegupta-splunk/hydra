@@ -1,0 +1,15 @@
+apiVersion: k8s.nginx.org/v1alpha1
+kind: TransportServer
+metadata:
+  name: splunk-tcp
+  namespace: splunk
+spec:
+  listener:
+    name: splunk-tcp 
+    protocol: TCP
+  upstreams:
+  - name: splunk-app
+    service: splunk-mds-lb
+    port: 8089
+  action:
+    pass: splunk-app
