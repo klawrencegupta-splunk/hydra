@@ -5,18 +5,18 @@ https://github.com/klawrencegupta-splunk/hydra/tree/master/mds_v1/scripts contai
 This deployment is currently compatible with Ubuntu 18.04 & has been tested with microk8s
 
 **scripts** - Run in order & follow echo statements as needed
-build_microk8s_1.18.sh - build script to deploy a microk8s cluster & kubectl for a single node
-mk8.sh - enables storage, dns & metalLB addons
-build_mds.sh - build script to deploy the following
--- configmap.yaml - TCP services configmap
--- lb.yaml - LoadBalancer service setting a open proxy address for HOST_IP:32740
--- mds.yaml - deploy full Splunk image & configure
--- pv-apps.yaml - persistent volume for /etc/deployment-apps directory
--- pv-local.yaml - persistant volume for /etc/apps directory
--- pvclaim-apps.yaml & pvclaim-local.yaml - persistant volume claims
--- iptables.sh  - set IPTABLES rules to allow traffic on TCP/32740
-enable_ds.sh - enables the DS feature on all pods deployed through the CLI
-reload.sh - reloads the deployment server on all pods deployed through the CLI
+ * build_microk8s_1.18.sh - build script to deploy a microk8s cluster & kubectl for a single node
+ * mk8.sh - enables storage, dns & metalLB addons
+ * build_mds.sh - build script to deploy the following
+* -- configmap.yaml - TCP services configmap
+* -- lb.yaml - LoadBalancer service setting a open proxy address for HOST_IP:32740
+* -- mds.yaml - deploy full Splunk image & configure
+* -- pv-apps.yaml - persistent volume for /etc/deployment-apps directory
+* -- pv-local.yaml - persistant volume for /etc/apps directory
+* -- pvclaim-apps.yaml & pvclaim-local.yaml - persistant volume claims
+* -- iptables.sh  - set IPTABLES rules to allow traffic on TCP/32740
+* enable_ds.sh - enables the DS feature on all pods deployed through the CLI
+* reload.sh - reloads the deployment server on all pods deployed through the CLI
 
 **Install Overview**
 The scripted install will deploy the following:
