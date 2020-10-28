@@ -1,0 +1,1 @@
+for x in $(kubectl get pods --all-namespaces | grep sds | awk '{print $2}'); do kubectl exec -it --namespace=splunk $x -- bash -c "sudo /opt/splunk/bin/./splunk enable deploy-server -auth admin:changeme123"; done
