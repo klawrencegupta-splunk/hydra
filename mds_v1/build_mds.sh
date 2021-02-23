@@ -11,14 +11,14 @@ kubectl apply -f lb.yaml
 sudo mkdir /splunk-local
 sudo mkdir /splunk-mds
 
-kubectl apply -f pv-local.yaml
-kubectl apply -f pvclaim-local.yaml
-kubectl apply -f pv-apps.yaml
-kubectl apply -f pvclaim-apps.yaml
+kubectl apply -f pv-appdata.yaml
+kubectl apply -f pvclaim-appdata.yaml
+kubectl apply -f pv-config.yaml
+kubectl apply -f pvclaim-config.yaml
 
 sleep 5s
 
-kubect apply -f mds.yaml
+kubectl apply -f mds.yaml
 
 sleep 15s
 
