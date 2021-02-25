@@ -1,15 +1,13 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: splunk-mds-config
-  namespace: splunk
-  labels:
-    type: local
+  name: mds-config
 spec:
-  storageClassName: manual
   capacity:
-    storage: 10Gi
+    storage: 1Mi
   accessModes:
-    - ReadWriteOnce
-  hostPath:
-    path: "/s3_mds_config"
+    - ReadWriteMany
+  nfs:
+    server: nfs-server.default.svc.cluster.local
+    path: "/nfserver/mds_config"
+

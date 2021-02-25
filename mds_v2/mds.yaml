@@ -23,12 +23,12 @@ spec:
         tier: sds 
     spec:
       volumes:
-        - name: splunk-mds-config
+        - name: mds-config
           persistentVolumeClaim:
-             claimName: splunk-mds-config
-        - name: splunk-mds-appdata
+             claimName: mds-config
+        - name: mds-appdata
           persistentVolumeClaim:
-             claimName: splunk-mds-appdata
+             claimName: mds-appdata
       hostname: sds
       dnsPolicy: ClusterFirst
       dnsConfig:
@@ -42,9 +42,9 @@ spec:
              name: splunk
           volumeMounts:
            - mountPath: /opt/splunk/etc/deployment-apps
-             name: splunk-mds-appdata
+             name: mds-appdata
            - mountPath: /opt/splunk/etc/apps/
-             name: splunk-mds-config
+             name: mds-config
           env:
             - name: SPLUNK_HOME
               value: /opt/splunk
